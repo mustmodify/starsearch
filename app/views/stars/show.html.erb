@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @star.name %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @star.twitter %>
+</p>
+
+  <div class="twitter-user-result">
+    <div class="profile-image">
+      <img src="<%= @star.twitter_user.profile_image_uri %>">
+    </div>
+  </div>
+
+
+<%= link_to 'Edit', edit_star_path(@star) %> |
+<%= link_to 'Back', stars_path %>

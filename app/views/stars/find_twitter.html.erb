@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>We don't have an associated Twitter account for this MEGA star. Pick one now.</p>
+
+<% twitter_options.each do |twitter_user| %>
+  <div class="twitter-user-result">
+    <div class="profile-image">
+      <img src="<%= twitter_user.profile_image_uri %>">
+      <%= twitter_user.username %>
+      <%= form_for(@star) do |f| %>
+        <%= f.hidden_field :twitter, {value: twitter_user.username} %>
+        <%= f.button twitter_user.username %>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @star.name %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @star.twitter %>
+</p>
+
+<%= link_to 'Edit', edit_star_path(@star) %> |
+<%= link_to 'Back', stars_path %>
